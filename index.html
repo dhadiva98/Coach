@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FFF7FA">
+  <title>Coach</title>
+  <link rel="icon" type="image/jpeg" href="icon.jpeg">
+  <link rel="apple-touch-icon" href="icon.jpeg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== Encabezado: coach del día + cambio de tema ===== -->
+  <header class="topbar">
+    <div class="brand">
+      <img src="icon.jpeg" alt="Coach" class="brand-icon">
+      <span class="brand-name">Coach</span>
+    </div>
+    <button id="btnTema" class="btn-tema" aria-label="Cambiar tema">🌗</button>
+  </header>
+
+  <main id="app">
+
+    <!-- ===== PANTALLA: INICIO ===== -->
+    <section id="pantalla-inicio" class="pantalla activa">
+      <div class="coach-card" id="coachCard">
+        <div class="coach-emoji" id="coachEmoji">😈</div>
+        <div class="coach-info">
+          <p class="coach-label">Tu coach de hoy</p>
+          <h1 class="coach-nombre" id="coachNombre">Coach Sarcástico</h1>
+        </div>
+      </div>
+
+      <p class="pregunta-inicio">¿Qué está pasando?</p>
+
+      <div class="grid-eventos" id="gridEventos">
+        <!-- Botones generados por app.js -->
+      </div>
+    </section>
+
+    <!-- ===== PANTALLA: FLUJO (respuestas y preguntas) ===== -->
+    <section id="pantalla-flujo" class="pantalla">
+      <div class="burbuja-wrap">
+        <div class="burbuja-emoji" id="flujoEmoji">😈</div>
+        <div class="burbuja" id="burbuja">
+          <p id="fraseTexto"></p>
+        </div>
+      </div>
+
+      <p class="flujo-pregunta oculto" id="flujoPregunta"></p>
+
+      <div class="flujo-opciones" id="flujoOpciones"></div>
+
+      <div class="flujo-otro oculto" id="flujoOtro">
+        <input type="text" id="inputOtro" placeholder="¿Qué quieres comer?" autocomplete="off" maxlength="60">
+        <button class="btn-primario" id="btnEnviarOtro">Responder</button>
+      </div>
+
+      <button class="btn-fantasma" id="btnVolver">← Volver</button>
+    </section>
+
+    <!-- ===== PANTALLA: ESTADÍSTICAS ===== -->
+    <section id="pantalla-stats" class="pantalla">
+      <h2 class="stats-titulo">Tu historial</h2>
+
+      <div class="stat-hero">
+        <div class="stat-hero-num" id="statRacha">0</div>
+        <div class="stat-hero-label">días de racha 🔥</div>
+        <div class="stat-hero-sub" id="statMejorRacha">Mejor racha: 0</div>
+        <div class="stat-meta" id="statMeta"></div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num" id="statRechazos">0</div>
+          <div class="stat-label">Antojos rechazados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statEntrenos">0</div>
+          <div class="stat-label">Entrenamientos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statPecados">0</div>
+          <div class="stat-label">Antojos aceptados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statVisitas">0</div>
+          <div class="stat-label">Charlas con el coach</div>
+        </div>
+      </div>
+
+      <p class="stats-frase" id="statsFrase"></p>
+    </section>
+
+  </main>
+
+  <!-- ===== Navegación inferior ===== -->
+  <nav class="navbar">
+    <button class="nav-btn nav-activo" id="navCoach" data-pantalla="pantalla-inicio">
+      <span class="nav-icono">🗣️</span><span>Coach</span>
+    </button>
+    <button class="nav-btn" id="navStats" data-pantalla="pantalla-stats">
+      <span class="nav-icono">📊</span><span>Stats</span>
+    </button>
+  </nav>
+
+  <script src="frases.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
